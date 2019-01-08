@@ -164,6 +164,13 @@ public class RayTracingCamera : MonoBehaviour
             {
                 job.SceneSpheres[i] = spheres[i].CreateRTGeometry();
             }
+
+            //List<BVEntity> entities = new List<BVEntity>();
+            //foreach(var sphere in spheres)
+            //{
+            //    entities.Add(new BVSphere(sphere.CreateRTGeometry()));
+            //}
+            //job.Scene = new RayTracingScene(entities);
         }
         var size = w * h;
         {

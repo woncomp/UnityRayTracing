@@ -149,5 +149,17 @@ public class BVHNode : BVEntity
 
 public class RayTracingScene
 {
+    public BVHNode mTree;
 
+    public RayTracingScene(List<BVEntity> entities)
+    {
+        mTree = BVHNode.Build(entities, 0, entities.Count);
+    }
+
+    public HitRecord RayCast(Ray ray)
+    {
+        HitRecord rec;
+        bool hit = mTree.Hit(ray, 0, 100000, out rec);
+        return rec;
+    }
 }

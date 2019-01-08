@@ -13,6 +13,8 @@ public struct RayTracingParallelJob : IJobParallelFor, System.IDisposable
     [ReadOnly]
     public NativeArray<long> RandomSeeds;
 
+    //public RayTracingScene Scene;
+
     public int Width, Height;
     public float StartX, StartY, StepX, StepY;
     public Vector3 Origin;
@@ -70,6 +72,7 @@ public struct RayTracingParallelJob : IJobParallelFor, System.IDisposable
     private Color TraceScene(ref long seed, ref int maxDepth, Ray ray, int depth, PixelDebugData debug)
     {
         HitRecord hit = RaycastScene(ray);
+        //HitRecord hit = Scene.RayCast(ray);
         if (debug != null)
         {
             if (hit.t > 0)
